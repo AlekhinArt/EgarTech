@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <form class="form-horizontal" th:object="${car}" th:action="@{/update}" name="edit_form" id="edit_form"
+              method="post" role="form">
+            <div class="form-group">
+                <input type="hidden" id="id" th:name="id" th:value="*{id}"/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="brand" th:name="brand" th:value="*{brand}"
+                       placeholder="Car brand"
+                       maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="model" th:name="model" th:value="*{model}"
+                       placeholder="Car model"
+                       maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="category" th:name="category" th:value="*{category}"
+                       placeholder="Car category"
+                       maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="stateNumber" th:name="stateNumber" th:value="*{brand}"
+                       placeholder="State number" maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <select type="text" class="form-control" name="type" id="type" required>
+                    <option th:value="*{type}">-- Old Type--</option>
+                    <option value="PASSENGER">Passenger type</option>
+                    <option value="BUS">Bus type</option>
+                    <option value="CARGO">Cargo type</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="yearOfRelease" th:name="yearOfRelease"
+                       th:value="*{yearOfRelease}"
+                       placeholder="*year of release" min="1900" max="2025" required/>
+            </div>
+            <div class="form-group">
+                <select type="text" class="form-control" name="trailer" id="trailer" required>
+                    <option th:value="*{trailer}"> -- Old value --</option>
+                    <option value="true">trailer</option>
+                    <option value="false">no trailer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <form class="form-horizontal" th:action="@{/}" name="input_form" id="input_form"
+                  method="get" role="form">
+                <button type="exit" class="btn btn-primary">Exit</button>
+            </form>
+    </div>
+</div>
+</div>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <form class="form-horizontal" th:action="@{/save}" name="input_form" id="input_form"
+              method="post" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" id="brand" th:name="brand" placeholder="Enter brand"
+                       maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="model" th:name="model" placeholder="Enter Model"
+                       maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="category" th:name="category" placeholder="Enter category"
+                       maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="stateNumber" th:name="stateNumber"
+                       placeholder="Enter stateNumber" maxlength="100" required/>
+            </div>
+            <div class="form-group">
+                <select type="text" class="form-control" name="type" id="type" required>
+                    <option value="">-- Select Type--</option>
+                    <option value="PASSENGER">Passenger type</option>
+                    <option value="BUS">Bus type</option>
+                    <option value="CARGO">Cargo type</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="yearOfRelease" th:name="yearOfRelease"
+                       placeholder="Enter yearOfRelease" min="1900" max="2025" required/>
+            </div>
+            <div class="form-group">
+                <select type="text" class="form-control" name="trailer" id="trailer" required>
+                    <option value="">-- Select Type--</option>
+                    <option value="true">trailer</option>
+                    <option value="false">no trailer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
